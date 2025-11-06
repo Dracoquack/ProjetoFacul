@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Diário Pessoal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6",
+                        "background-light": "#FAFAFA",
+                        "background-dark": "#101722",
+                        "text-light": "#333333",
+                        "text-dark": "#f5f7f8",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a2433",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#374151",
+                        "error": "#ef4444",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E293B",
+                        "editor-light": "#FFFFFF",
+                        "editor-dark": "#18212f",
+                        "subtle-light": "#e7ecf4",
+                        "subtle-dark": "#2c3646",
+                        "placeholder-light": "#9ca3af",
+                        "placeholder-dark": "#6b7280",
+                        "destructive": "#ef4444"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Merriweather", "serif"],
+                        "title": ["Poppins", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-sm p-8 border border-border-light dark:border-border-dark">
+                <div class="flex flex-col items-center mb-6">
+                    <span class="material-symbols-outlined text-primary text-5xl mb-2">auto_stories</span>
+                    <h1 class="text-2xl font-bold tracking-tight">Diário Pessoal</h1>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Acesse sua conta</p>
+                </div>
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <label class="flex flex-col">
+                            <p class="text-sm font-medium leading-normal pb-2">E-mail</p>
+                            <input id="loginEmail" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark h-12 px-4 text-base font-normal leading-normal border border-border-light dark:border-border-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="seu@email.com" type="email" required/>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="flex flex-col">
+                            <div class="flex justify-between items-baseline">
+                                <p class="text-sm font-medium leading-normal pb-2">Senha</p>
+                            </div>
+                            <div class="relative flex w-full flex-1 items-stretch">
+                                <input id="loginPassword" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark h-12 pl-4 pr-10 text-base font-normal leading-normal border border-border-light dark:border-border-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="••••••••" type="password" required/>
+                                <button class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-primary toggle-password" type="button" data-target="loginPassword">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="pt-2">
+                        <button id="loginBtn" class="flex w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark disabled:opacity-50" type="submit">
+                            <span class="truncate">Entrar</span>
+                        </button>
+                    </div>
+                    <div id="loginError" class="text-error text-sm text-center pt-2 hidden">E-mail ou senha inválidos. Tente novamente.</div>
+                </form>
+                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal pt-6 text-center">
+                    Ainda não tem uma conta? <a class="font-semibold text-primary hover:underline" href="#" id="showRegister">Registre-se</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Screen -->
+    <div id="registerScreen" class="min-h-screen flex items-center justify-center p-4 hidden">
+        <div class="w-full max-w-md">
+            <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-sm p-8 border border-border-light dark:border-border-dark">
+                <div class="flex flex-col items-center mb-6">
+                    <span class="material-symbols-outlined text-primary text-5xl mb-2">auto_stories</span>
+                    <h1 class="text-2xl font-bold tracking-tight">Criar Conta</h1>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Registre-se para começar</p>
+                </div>
+                <form id="registerForm" class="space-y-4">
+                    <div>
+                        <label class="flex flex-col">
+                            <p class="text-sm font-medium leading-normal pb-2">Nome</p>
+                            <input id="registerName" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark h-12 px-4 text-base font-normal leading-normal border border-border-light dark:border-border-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Seu nome" type="text" required/>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="flex flex-col">
+                            <p class="text-sm font-medium leading-normal pb-2">E-mail</p>
+                            <input id="registerEmail" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark h-12 px-4 text-base font-normal leading-normal border border-border-light dark:border-border-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="seu@email.com" type="email" required/>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="flex flex-col">
+                            <div class="flex justify-between items-baseline">
+                                <p class="text-sm font-medium leading-normal pb-2">Senha</p>
+                            </div>
+                            <div class="relative flex w-full flex-1 items-stretch">
+                                <input id="registerPassword" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark h-12 pl-4 pr-10 text-base font-normal leading-normal border border-border-light dark:border-border-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="••••••••" type="password" required/>
+                                <button class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-primary toggle-password" type="button" data-target="registerPassword">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                            </div>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="flex flex-col">
+                            <div class="flex justify-between items-baseline">
+                                <p class="text-sm font-medium leading-normal pb-2">Confirmar Senha</p>
+                            </div>
+                            <div class="relative flex w-full flex-1 items-stretch">
+                                <input id="registerConfirmPassword" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark h-12 pl-4 pr-10 text-base font-normal leading-normal border border-border-light dark:border-border-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="••••••••" type="password" required/>
+                                <button class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-primary toggle-password" type="button" data-target="registerConfirmPassword">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="pt-2">
+                        <button id="registerBtn" class="flex w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark disabled:opacity-50" type="submit">
+                            <span class="truncate">Criar Conta</span>
+                        </button>
+                    </div>
+                    <div id="registerError" class="text-error text-sm text-center pt-2 hidden">Erro ao criar conta. Verifique os dados e tente novamente.</div>
+                </form>
+                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal pt-6 text-center">
+                    Já tem uma conta? <a class="font-semibold text-primary hover:underline" href="#" id="showLogin">Entrar</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="flex h-screen w-full hidden">
+        <!-- SideNavBar -->
+        <aside class="flex w-64 flex-col border-r border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark p-4">
+            <div class="flex items-center gap-3 px-3 py-3">
+                <div class="size-6 text-primary">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h1 class="text-xl font-bold">Diário Pessoal</h1>
+            </div>
+            <nav class="mt-8 flex flex-col gap-2">
+                <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 cursor-pointer" id="newPageBtn">
+                    <span class="material-symbols-outlined text-xl">add_circle</span>
+                    <p class="text-sm font-medium">Nova Página</p>
+                </a>
+                <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 cursor-pointer" id="favoritesBtn">
+                    <span class="material-symbols-outlined text-xl">star</span>
+                    <p class="text-sm font-medium">Favoritos</p>
+                </a>
+                <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 cursor-pointer" id="draftsBtn">
+                    <span class="material-symbols-outlined text-xl">draft</span>
+                    <p class="text-sm font-medium">Rascunhos</p>
+                </a>
+                <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 cursor-pointer" id="profileBtn">
+                    <span class="material-symbols-outlined text-xl">person</span>
+                    <p class="text-sm font-medium">Perfil</p>
+                </a>
+                <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 cursor-pointer" id="settingsBtn">
+                    <span class="material-symbols-outlined text-xl">settings</span>
+                    <p class="text-sm font-medium">Configurações</p>
+                </a>
+                <a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 cursor-pointer" id="logoutBtn">
+                    <span class="material-symbols-outlined text-xl">logout</span>
+                    <p class="text-sm font-medium">Sair</p>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="flex flex-1 flex-col overflow-hidden">
+            <!-- TopNavBar -->
+            <header class="flex shrink-0 items-center justify-between border-b border-solid border-border-light dark:border-border-dark px-8 py-3 bg-surface-light dark:bg-surface-dark">
+                <div class="flex flex-1">
+                    <label class="relative flex w-full max-w-sm">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+                        <input id="searchInput" class="form-input h-10 w-full rounded-lg border-border-light bg-background-light pl-10 pr-4 text-sm placeholder:text-gray-400 focus:border-primary focus:ring-primary dark:border-border-dark dark:bg-background-dark dark:text-text-dark dark:placeholder:text-gray-500" placeholder="Buscar no diário..." type="search"/>
+                    </label>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <span class="material-symbols-outlined">dark_mode</span>
+                    </button>
+                    <button id="newPageTopBtn" class="flex h-10 min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold text-white hover:bg-primary/90">
+                        <span class="material-symbols-outlined text-xl">add</span>
+                        <span class="truncate">Nova Página</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 overflow-y-auto p-8">
+                <!-- Dashboard View -->
+                <div id="dashboardView">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">Todas as Entradas</h2>
+                        <select id="sortSelect" class="rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-3 py-2 text-sm">
+                            <option value="date-desc">Mais recente</option>
+                            <option value="date-asc">Mais antigo</option>
+                            <option value="title">Título</option>
+                            <option value="favorites">Favoritos</option>
+                        </select>
+                    </div>
+                    <div id="entriesContainer" class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <!-- Entries will be dynamically loaded here -->
+                    </div>
+                </div>
+
+                <!-- Editor View -->
+                <div id="editorView" class="hidden">
+                    <div class="flex justify-center p-4 sm:p-6 md:p-8">
+                        <div class="w-full max-w-4xl">
+                            <div class="flex flex-col gap-8 rounded-xl bg-editor-light dark:bg-editor-dark p-6 sm:p-8 md:p-12 shadow-sm">
+                                <!-- Cover Image -->
+                                <div id="coverImageArea" class="w-full h-40 sm:h-56 rounded-xl overflow-hidden border border-border-light dark:border-border-dark bg-subtle-light dark:bg-subtle-dark flex items-center justify-center cursor-pointer">
+                                    <img id="coverImagePreview" src="" alt="Capa" class="w-full h-full object-cover hidden"/>
+                                    <span id="coverImagePlaceholder" class="material-symbols-outlined text-4xl text-gray-400">image</span>
+                                    <input id="coverImageInput" type="file" accept="image/*" class="hidden"/>
+                                </div>
+                                <!-- Title Input -->
+                                <input id="entryTitle" class="w-full border-0 bg-transparent p-0 text-3xl sm:text-4xl font-bold font-title text-text-light dark:text-text-dark placeholder:text-placeholder-light dark:placeholder:text-placeholder-dark focus:ring-0" placeholder="Qual o título de hoje?" value=""/>
+                                
+                                <!-- Meta Section: Tags and Visibility -->
+                                <div class="flex flex-col gap-6">
+                                    <!-- Tags Input -->
+                                    <div class="flex-1">
+                                        <label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="entryTags">Tags</label>
+                                        <div id="entryTagsContainer" class="mt-2 flex flex-wrap items-center gap-2 rounded-lg bg-subtle-light dark:bg-subtle-dark p-2 relative">
+                                            <input id="entryTags" class="min-w-[120px] flex-1 border-0 bg-transparent p-1 text-sm text-text-light dark:text-text-dark placeholder:text-placeholder-light dark:placeholder:text-placeholder-dark focus:ring-0" placeholder="Adicionar tag..."/>
+                                            <div id="tagSuggestions" class="absolute left-2 top-full mt-2 w-64 max-w-[calc(100%-1rem)] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark shadow-lg hidden">
+                                                <!-- suggestions injected dynamically -->
+                                            </div>
+                                        </div>
+                                        <!-- Aba de Imagens (colapsável abaixo de Tags) -->
+                                        <div class="mt-3">
+                                            <button id="imagesTabBtn" type="button" class="flex w-full items-center gap-2 rounded-md border border-border-light dark:border-border-dark bg-subtle-light dark:bg-subtle-dark px-3 py-2 text-left text-sm font-medium text-text-light dark:text-text-dark hover:border-primary/60 hover:text-primary">
+                                                <span class="material-symbols-outlined text-base">image</span>
+                                                <span>Imagens</span>
+                                                <span class="material-symbols-outlined ml-auto text-base">expand_more</span>
+                                            </button>
+                                        </div>
+                                        <div id="imagesPanel" class="mt-2 hidden rounded-lg bg-subtle-light dark:bg-subtle-dark p-3">
+                                            <div class="flex items-center justify-between">
+                                                <span class="text-sm font-medium text-text-light dark:text-text-dark">Imagens</span>
+                                                <div class="flex items-center gap-2">
+                                                    <input id="imagesInput" type="file" accept="image/*" multiple class="hidden"/>
+                                                    <button id="imagesAddBtn" type="button" class="rounded-md border border-border-light dark:border-border-dark bg-primary/10 px-3 py-1 text-xs font-medium text-primary hover:bg-primary/20">Adicionar</button>
+                                                </div>
+                                            </div>
+                                            <div id="imagesGrid" class="mt-2 grid grid-cols-3 gap-2 overflow-y-auto h-48 pr-1"></div>
+                                            <p class="mt-1 text-xs text-placeholder-light dark:text-placeholder-dark">Clique nas miniaturas para ampliar</p>
+                                        </div>
+                                    </div>
+                                    
+                                    </div>
+                                
+                                <!-- Body Textarea -->
+                                <textarea id="entryContent" class="min-h-[50vh] w-full resize-none border-0 bg-transparent p-0 font-body text-base leading-relaxed text-text-light dark:text-text-dark placeholder:text-placeholder-light dark:placeholder:text-placeholder-dark focus:ring-0" placeholder="Comece a escrever aqui..."></textarea>
+                                
+                                <!-- Action Buttons -->
+                                <div class="flex gap-4">
+                                    <button id="publishEntryBtn" class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary/90">
+                                        Publicar
+                                    </button>
+                                    <button id="deleteEntryBtn" class="p-2 text-text-light dark:text-text-dark transition-colors hover:text-destructive dark:hover:text-destructive">
+                                        <span class="material-symbols-outlined">delete</span>
+                                    </button>
+                                    <button id="backToDashboard" class="ml-auto flex items-center gap-2 text-text-light dark:text-text-dark hover:text-primary">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                                        <span>Voltar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Lightbox -->
+                <div id="imageLightbox" class="fixed inset-0 bg-black/80 hidden z-50 flex items-center justify-center">
+                    <img id="lightboxImg" src="" class="max-w-[90vw] max-h-[90vh] rounded-lg shadow-lg"/>
+                    <button id="lightboxClose" type="button" class="absolute top-4 right-4 text-white">
+                        <span class="material-symbols-outlined text-3xl">close</span>
+                    </button>
+                </div>
+
+                <!-- Favorites View -->
+                <div id="favoritesView" class="hidden">
+                    <h2 class="text-2xl font-bold mb-6">Favoritos</h2>
+                    <div id="favoritesContainer" class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <!-- Favorite entries will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Profile View -->
+                <div id="profileView" class="hidden">
+                    <div class="max-w-4xl mx-auto">
+                        <h2 class="text-2xl font-bold mb-6">Perfil</h2>
+                        <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-sm p-8 border border-border-light dark:border-border-dark">
+                            <div class="grid grid-cols-1 gap-8 items-start">
+                                <!-- Profile Fields -->
+                                <div class="space-y-6">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Nome</label>
+                                        <input id="profileName" type="text" class="w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2"/>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">E-mail</label>
+                                        <input id="profileEmail" type="email" class="w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2" readonly/>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Bio</label>
+                                        <textarea id="profileBio" rows="5" class="w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2" placeholder="Fale um pouco sobre você..."></textarea>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <button id="saveProfileBtn" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90">
+                                            Salvar Alterações
+                                        </button>
+                                        <button id="changePasswordBtn" class="border border-border-light dark:border-border-dark px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                                            Alterar Senha
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings View -->
+                <div id="settingsView" class="hidden">
+                    <div class="max-w-2xl mx-auto">
+                        <h2 class="text-2xl font-bold mb-6">Configurações</h2>
+                        <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-sm p-8 border border-border-light dark:border-border-dark space-y-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Tema Escuro</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Ativar tema escuro</p>
+                                </div>
+                                <button id="themeToggleSettings" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <span class="material-symbols-outlined">dark_mode</span>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Auto-save</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Salvar automaticamente enquanto escreve</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="autoSaveToggle" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Exportar Dados</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Baixar todas as suas entradas</p>
+                                </div>
+                                <button id="exportDataBtn" class="border border-border-light dark:border-border-dark px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    Exportar
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Apagar Todos os Dados</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Remover permanentemente todas as entradas</p>
+                                </div>
+                                <button id="clearAllDataBtn" class="border border-destructive text-destructive px-4 py-2 rounded-lg hover:bg-destructive/10">
+                                    Apagar Tudo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer with Status Indicator -->
+    <footer id="statusFooter" class="fixed bottom-0 right-0 p-4 sm:p-6 hidden">
+        <div class="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+            <span id="wordCount">0 palavras</span>
+            <span id="saveStatus">Salvo</span>
+        </div>
+    </footer>
+
+    <!-- In-site Confirm Modal -->
+    <div id="confirmModal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative mx-auto mt-24 w-[90%] max-w-md rounded-xl border border-border-light bg-card-light p-6 shadow-lg dark:border-border-dark dark:bg-card-dark">
+            <h3 class="text-lg font-bold mb-2">Confirmação</h3>
+            <p id="confirmMessage" class="text-sm text-gray-600 dark:text-gray-300 mb-6">Tem certeza?</p>
+            <div class="flex justify-end gap-3">
+                <button id="confirmCancelBtn" class="rounded-lg border border-border-light px-4 py-2 text-sm hover:bg-gray-50 dark:border-border-dark dark:hover:bg-gray-700">Cancelar</button>
+                <button id="confirmOkBtn" class="rounded-lg bg-destructive px-4 py-2 text-sm font-semibold text-white hover:bg-red-600">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightweight Toast -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] hidden">
+        <div class="rounded-lg bg-card-light px-4 py-2 text-sm shadow-md border border-border-light dark:bg-card-dark dark:border-border-dark">
+            <span id="toastMessage">Mensagem</span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabaseClient.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/features.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Diário Pessoal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#3c83f6",
+            "background-light": "#FAFAFA",
+            "background-dark": "#121212",
+            "text-light": "#333333",
+            "text-dark": "#EAEAEA",
+            "meta-light": "#6b7280",
+            "meta-dark": "#9ca3af",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"],
+            "body": ["Merriweather", "serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body class="bg-background-dark font-body text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="sticky top-0 z-10 w-full bg-background-dark/80 backdrop-blur-sm">
+<div class="mx-auto flex max-w-4xl items-center justify-between gap-2 px-4 py-3 sm:px-6 lg:px-8">
+<button class="flex items-center gap-1 text-primary hover:underline">
+<span class="material-symbols-outlined text-xl">arrow_back_ios</span>
+<span class="text-sm font-medium">Voltar</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="p-2 text-meta-dark hover:text-primary rounded-full transition-colors">
+<span class="material-symbols-outlined">star</span>
+</button>
+<button class="p-2 text-meta-dark hover:text-primary rounded-full transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-meta-dark hover:text-primary rounded-full transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-8 sm:py-12">
+<div class="layout-content-container flex w-full max-w-[700px] flex-1 flex-col px-4 sm:px-6">
+<h1 class="font-display text-text-dark tracking-tight text-3xl sm:text-4xl font-bold leading-tight text-left pb-3 pt-6">Reflexões sobre a Semana</h1>
+<p class="text-meta-dark text-sm font-normal leading-normal pb-4 pt-1">14 de Julho, 2024</p>
+<div class="flex gap-2 pb-8 flex-wrap">
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 px-3">
+<p class="text-primary text-xs font-medium leading-normal">Trabalho</p>
+</div>
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 px-3">
+<p class="text-primary text-xs font-medium leading-normal">Reflexão</p>
+</div>
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 px-3">
+<p class="text-primary text-xs font-medium leading-normal">Viagem</p>
+</div>
+</div>
+<article class="font-body text-text-dark text-base sm:text-lg font-normal leading-loose space-y-6">
+<p>
+              Esta semana foi uma montanha-russa de emoções e desafios. Comecei com a apresentação do grande projeto no trabalho, algo que consumiu minhas energias por meses. A sensação de alívio e orgulho ao final foi indescritível. A equipe inteira comemorou, e foi um momento de união que eu não sentia há muito tempo.
+            </p>
+<p>
+              No meio da semana, decidi fazer uma pequena viagem de um dia para a serra, buscando um pouco de paz e ar fresco. O silêncio da natureza, interrompido apenas pelo som do vento nas árvores, foi o remédio perfeito para a mente cansada. Sentei-me à beira de um riacho e simplesmente observei a água fluir, deixando que meus pensamentos se acalmassem junto com ela. Foi um lembrete importante de que preciso desses momentos de pausa para me reconectar comigo mesmo.
+            </p>
+<p>
+              Agora, no final da semana, sinto-me renovado e com uma perspectiva mais clara sobre meus próximos passos. As pequenas vitórias e os momentos de tranquilidade são o combustível que me move. Estou grato por tudo que vivi.
+            </p>
+</article>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Diário Pessoal - Favoritos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Merriweather:wght@400&amp;family=Poppins:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0a5adb",
+                        "background-light": "#FAFAFA",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Merriweather", "serif"],
+                        "heading": ["Poppins", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="sticky top-0 h-screen w-64 flex-shrink-0 flex-col gap-4 bg-white/50 dark:bg-black/20 p-4 hidden md:flex">
+<div class="flex flex-col h-full justify-between">
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-3 px-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcD1rY69nt-PutOqon7SlgoVd-CtqrGksEcKpq-fqWh_KFthqJbwNwQ9xfw5CYe29BONfb7xHaBzOdK7lyGG3qDpT99232xyipEZ7onrOm1vmpAXGeya-WtixPEHG1Aw54Xb0jx3QI0gaY_UAiko-Ev84eLLbR5BA-YHIbZBXxmEdnHheYW0y58LWc-VFjVgwezXTC0IoVxZYuc6qL3-jVnLQDfKUSDsWag67OPQy24MhEi5z8WzZ0nswobDYl5LeeFBI-W2x2Y-co");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-800 dark:text-white text-base font-medium leading-normal font-heading">Diário Pessoal</h1>
+<p class="text-slate-500 dark:text-[#8fa6cc] text-sm font-normal leading-normal">user@email.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-[#8fa6cc]">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-white" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-sm font-medium leading-normal">Favoritos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-[#8fa6cc]">import_contacts</span>
+<p class="text-sm font-medium leading-normal">Todas as Entradas</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-[#8fa6cc]">sell</span>
+<p class="text-sm font-medium leading-normal">Tags</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-2">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Nova Entrada</span>
+</button>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-[#8fa6cc]">settings</span>
+<p class="text-sm font-medium leading-normal">Configurações</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-[#8fa6cc]">logout</span>
+<p class="text-sm font-medium leading-normal">Sair</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-4 sm:p-6 md:p-8">
+<div class="max-w-4xl mx-auto">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+<h1 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-tight font-heading">Favoritos</h1>
+</div>
+<!-- SearchBar and Chips -->
+<div class="flex flex-col sm:flex-row gap-4 mb-8">
+<div class="flex-grow">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-slate-100 dark:bg-slate-800/50">
+<div class="text-slate-500 dark:text-[#8fa6cc] flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-800 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-transparent h-full placeholder:text-slate-500 dark:placeholder:text-[#8fa6cc] px-4 pl-2 text-base font-normal leading-normal" placeholder="Buscar nos favoritos..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2">
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-slate-800/50 px-4 hover:bg-slate-300 dark:hover:bg-slate-700/50 transition-colors">
+<p class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal">Trabalho</p>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-slate-800/50 px-4 hover:bg-slate-300 dark:hover:bg-slate-700/50 transition-colors">
+<p class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal">Viagem</p>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-slate-800/50 px-4 hover:bg-slate-300 dark:hover:bg-slate-700/50 transition-colors">
+<p class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal">Reflexões</p>
+</button>
+</div>
+</div>
+<!-- Cards list -->
+<div class="flex flex-col gap-6">
+<!-- Card 1 -->
+<div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl hover:shadow-lg dark:hover:bg-slate-800 transition-all">
+<div class="flex flex-col sm:flex-row items-start justify-between gap-6">
+<div class="flex flex-[2_2_0px] flex-col gap-4 order-2 sm:order-1">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-[#8fa6cc] text-sm font-normal leading-normal">24 de Ago, 2024</p>
+<span class="material-symbols-outlined text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight font-heading">Reflexão sobre o projeto X</h2>
+<p class="text-slate-600 dark:text-slate-300 text-base font-normal leading-relaxed font-body">
+                                        Hoje foi um dia desafiador, mas conseguimos avançar bastante. A reunião com a equipe foi produtiva e conseguimos alinhar os próximos passos para a entrega final...
+                                    </p>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/50 px-2 py-1 rounded-full">Trabalho</span>
+<span class="text-xs font-medium text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/50 px-2 py-1 rounded-full">Produtividade</span>
+</div>
+</div>
+<div class="w-full sm:w-auto bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1 order-1 sm:order-2" data-alt="Abstract image representing Project X" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOS6WqAjrRW-IG_HrZim5l5HoYqV1XA8shi5Bb50CaX5zdgZ7k5QRuaaKWnJYoYBqBO21dxEL9HlyuiOsnbNwdotcUDhZK7Bn2MUR2Ug29mr8JA2shqUEshU-jzwJ8wLm_il8_Q-IsmbX4liTgniWy-iyW1sNioqAY6sQIehOJQljWSLd2KEt4mYXILIikyP-TEQlNAGRPhqbBezBhBaskcPdCgYOi_h3uTIQWebJM5ejbz-cBfrsaECT8OnRAQINbstNHWeRBOq_B");'></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-6 bg-white dark:bg-slate-800/50 rounded-xl hover:shadow-lg dark:hover:bg-slate-800 transition-all">
+<div class="flex flex-col sm:flex-row items-start justify-between gap-6">
+<div class="flex flex-[2_2_0px] flex-col gap-4 order-2 sm:order-1">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-[#8fa6cc] text-sm font-normal leading-normal">15 de Jul, 2024</p>
+<span class="material-symbols-outlined text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight font-heading">Aventura nos Alpes</h2>
+<p class="text-slate-600 dark:text-slate-300 text-base font-normal leading-relaxed font-body">
+                                        A vista do topo da montanha era de tirar o fôlego. O ar puro, o silêncio que só a natureza oferece. Cada passo da trilha valeu a pena. Sinto-me renovado e com a mente mais clara...
+                                    </p>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/50 px-2 py-1 rounded-full">Viagem</span>
+<span class="text-xs font-medium text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/50 px-2 py-1 rounded-full">Reflexões</span>
+</div>
+</div>
+<div class="w-full sm:w-auto bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1 order-1 sm:order-2" data-alt="Scenic view of the Alps" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXaKQEeAX6J09y88357gMDeG_X3nJh3lKfi7WearxMSVAReNu0i6C-ZEKPZDlVLHAj0b9OPMJmirUQTkDqrKa8NPuNv0PfIL2VaVq1ZOH9O3VPxEssmZg_Xa6AwoW2BDy7lE9gBN5hpLzI2tX0qhGSP7TQr-RQOVqQXgr-xu5laMSbsPNYEKcXgktzezktvmBicBxvSgPA4u6NzeT1lk7ScH8LfNu40uLqms_33geyyygRiIIFgmeFCNQsaCMFTRvyXG9x_wCSwr7e");'></div>
+</div>
+</div>
+<!-- Empty State Example (commented out) -->
+<!-- 
+                    <div class="text-center py-20 px-6 bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-dashed border-slate-300 dark:border-slate-700">
+                        <span class="material-symbols-outlined text-5xl text-slate-400 dark:text-slate-600 mx-auto" style="font-variation-settings: 'FILL' 0, 'wght' 200;">star</span>
+                        <h3 class="mt-4 text-lg font-semibold text-slate-800 dark:text-slate-200">Nenhuma entrada favorita</h3>
+                        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Você ainda não marcou nenhuma entrada como favorita. Clique na estrela em uma entrada para adicioná-la aqui.</p>
+                    </div>
+                    -->
+</div>
+</div>
+</main>
+</div>
+</body></html>

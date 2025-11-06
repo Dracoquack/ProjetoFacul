@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configurações - Diário Pessoal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+      }
+    </style>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#3B82F6",
+              "background-light": "#FAFAFA",
+              "background-dark": "#18181b",
+              "text-light": "#333333",
+              "text-dark": "#EAEAEA"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"],
+              "heading": ["Poppins", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-zinc-200 dark:border-zinc-800 px-6 md:px-10 py-4 w-full">
+<div class="flex items-center gap-4 text-zinc-900 dark:text-zinc-100">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 14h-2v-2h2v2zm0-4h-2V5h2v7z"></path></svg>
+</div>
+<h2 class="text-zinc-900 dark:text-zinc-100 text-lg font-bold font-heading tracking-tight">Diário Pessoal</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4 md:gap-8">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-primary dark:hover:text-primary text-sm font-medium" href="#">Início</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-primary dark:hover:text-primary text-sm font-medium" href="#">Escrever</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-primary dark:hover:text-primary text-sm font-medium" href="#">Arquivo</a>
+</nav>
+<a class="flex cursor-pointer items-center justify-center rounded-full h-10 w-10 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+</a>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiz0ZnKkpJ70TxNAQfETy91u4AI6gUUEip5AZT5l1xJukIEjkXLNslmv4dzQd7NO0qeHmhsd8TN8Gq1FjUn9I71vinTn0Mu7T3WoHDrDxFuV_jmIo3v39XNm1bIY6Sjh7r8tHlzec8s4g4Zf4Txbwv-uFhTQAVW9MIpgy4pJi1Hlh09ZS16GIeb8GqwrAIzv_otaPi-a-OXTGrh6-qH3sEbufyHbUbHkqQplrjtnPB88SHeZ-VpdDFl87xOSgeFvRICu0bYYaLcha5");'></div>
+</div>
+</header>
+<main class="px-4 py-8 md:py-16 flex flex-1 justify-center w-full">
+<div class="layout-content-container flex flex-col max-w-3xl flex-1 gap-8">
+<h1 class="text-3xl font-bold font-heading text-zinc-900 dark:text-zinc-100 tracking-tight">Configurações</h1>
+<div class="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-sm">
+<div class="p-6 md:p-8">
+<h2 class="text-xl font-bold font-heading text-zinc-900 dark:text-zinc-100">Perfil</h2>
+<div class="flex pt-6 flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start">
+<div class="flex flex-col gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 ring-4 ring-zinc-700/50" data-alt="User avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5vz6_UKVtRhqdSj9PrYm_6uWZ5MR1_c9LXGVcfhVYEx7yZp3g4WRWNBnbI74khgJKRZWJhWXOWh5j22ivczHTMtON1HDWlgCwjrmx39wXW2M9sGhwbUBip6z9ixhmcxx-TfKAzs8beKY5xkmwc5sRMyEaEwYlvGYyFdwvedZcwh8Ge6mVp5gTd16QLrhVrmlLGPKbZ1s3YrUm4ith0dw1Wnhhz9YkWE8c-WPjVC-dmJFUpoNy_s-nRCa42Zp0kyv2hYq7DqtkFgrU");'></div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-zinc-100 dark:bg-zinc-700 text-zinc-800 dark:text-text-dark text-sm font-bold hover:bg-zinc-200 dark:hover:bg-zinc-600 w-full">
+<span class="truncate">Alterar foto</span>
+</button>
+</div>
+<div class="flex-1 w-full space-y-5">
+<label class="flex flex-col w-full">
+<p class="text-sm font-medium leading-normal pb-2 text-zinc-700 dark:text-zinc-300">Nome</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-zinc-900 dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary focus:ring-opacity-50 border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 focus:border-primary dark:focus:border-primary h-12 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 p-3 text-base font-normal" value="Usuário Anônimo"/>
+</label>
+<div class="relative w-full">
+<label class="flex flex-col">
+<p class="text-sm font-medium leading-normal pb-2 text-zinc-700 dark:text-zinc-300">Bio</p>
+<textarea class="form-input flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-md text-zinc-900 dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary focus:ring-opacity-50 border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 focus:border-primary dark:focus:border-primary min-h-28 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 p-3 text-base font-normal">Escreva um pouco sobre você...</textarea>
+</label>
+<span class="absolute bottom-3 right-3 text-xs text-zinc-400 dark:text-zinc-500">0/160</span>
+</div>
+<label class="flex flex-col w-full">
+<p class="text-sm font-medium leading-normal pb-2 text-zinc-700 dark:text-zinc-300">E-mail</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-zinc-500 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800/50 h-12 p-3 text-base font-normal cursor-not-allowed" readonly="" value="usuario@email.com"/>
+</label>
+</div>
+</div>
+</div>
+<div class="border-t border-zinc-200 dark:border-zinc-800 p-6 md:p-8">
+<h2 class="text-xl font-bold font-heading text-zinc-900 dark:text-zinc-100">Preferências</h2>
+<div class="pt-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div class="flex flex-col gap-2">
+<p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Tema</p>
+<div class="flex gap-4">
+<button class="flex-1 p-2 border-2 border-zinc-300 dark:border-zinc-700 hover:border-primary dark:hover:border-primary rounded-md">
+<div class="w-full h-16 bg-background-light border border-zinc-200 dark:border-zinc-700 rounded"></div>
+<p class="text-sm font-medium mt-2 text-zinc-800 dark:text-zinc-200">Claro</p>
+</button>
+<button class="flex-1 p-2 border-2 border-primary rounded-md">
+<div class="w-full h-16 bg-background-dark border border-zinc-800 rounded"></div>
+<p class="text-sm font-medium mt-2 text-zinc-800 dark:text-zinc-200">Escuro</p>
+</button>
+</div>
+</div>
+<div class="space-y-6">
+<label class="flex flex-col w-full">
+<p class="text-sm font-medium leading-normal pb-2 text-zinc-700 dark:text-zinc-300">Modo do Editor</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-zinc-900 dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary focus:ring-opacity-50 border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 focus:border-primary dark:focus:border-primary h-12 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 pl-3 pr-8 text-base font-normal">
+<option>Padrão</option>
+<option>Foco</option>
+<option>Minimalista</option>
+</select>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-sm font-medium leading-normal pb-2 text-zinc-700 dark:text-zinc-300">Salvar Automaticamente</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-zinc-900 dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary focus:ring-opacity-50 border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 focus:border-primary dark:focus:border-primary h-12 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 pl-3 pr-8 text-base font-normal">
+<option>A cada 30 segundos</option>
+<option>A cada minuto</option>
+<option>Desativado</option>
+</select>
+</label>
+</div>
+</div>
+</div>
+<div class="flex justify-end p-6 bg-zinc-50 dark:bg-zinc-800/50 border-t border-zinc-200 dark:border-zinc-800 rounded-b-lg">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-11 px-6 bg-primary text-white text-sm font-bold hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:outline-none">
+<span class="truncate">Salvar Alterações</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<div class="fixed bottom-5 right-5 flex items-center gap-3 p-4 rounded-lg bg-green-500 dark:bg-green-600 text-white dark:text-green-100 shadow-lg" id="toast-success" role="alert">
+<span class="material-symbols-outlined">check_circle</span>
+<p class="text-sm font-medium">Alterações salvas com sucesso!</p>
+</div>
+</div>
+
+</body></html>

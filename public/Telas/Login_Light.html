@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Diário Pessoal - Acessar Conta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#3B82F6",
+              "background-light": "#FAFAFA",
+              "background-dark": "#101722",
+              "text-light": "#333333",
+              "text-dark": "#f5f7f8",
+              "card-light": "#ffffff",
+              "card-dark": "#1a2433",
+              "border-light": "#e5e7eb",
+              "border-dark": "#374151",
+              "error": "#ef4444"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        .spinner {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col items-center justify-center p-4 group/design-root overflow-x-hidden">
+<div class="w-full max-w-md">
+<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-sm p-8 border border-border-light dark:border-border-dark">
+<div class="flex flex-col items-center mb-6">
+<span class="material-symbols-outlined text-primary text-5xl mb-2">auto_stories</span>
+<h1 class="text-2xl font-bold tracking-tight text-text-light dark:text-text-dark">Diário Pessoal</h1>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Acesse sua conta</p>
+</div>
+<form class="space-y-4">
+<div>
+<label class="flex flex-col">
+<p class="text-sm font-medium leading-normal pb-2">E-mail</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark h-12 px-4 text-base font-normal leading-normal border border-border-light dark:border-border-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="seu@email.com" type="email" value=""/>
+</label>
+</div>
+<div>
+<label class="flex flex-col">
+<div class="flex justify-between items-baseline">
+<p class="text-sm font-medium leading-normal pb-2">Senha</p>
+</div>
+<div class="relative flex w-full flex-1 items-stretch">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark h-12 pl-4 pr-10 text-base font-normal leading-normal border border-border-light dark:border-border-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" placeholder="••••••••" type="password" value=""/>
+<button class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-primary" type="button">
+<span class="material-symbols-outlined" data-icon="Eye">visibility</span>
+</button>
+</div>
+</label>
+</div>
+<div class="pt-2">
+<button class="flex w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark disabled:opacity-50" type="submit">
+<span class="truncate">Entrar</span>
+</button>
+</div>
+<!-- Spinner State (example, would be dynamically controlled) -->
+<!-- 
+                    <div class="pt-2">
+                         <button class="flex w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide disabled:opacity-75" type="submit" disabled>
+                            <div class="spinner"></div>
+                         </button>
+                    </div>
+                    -->
+<!-- Error Message State -->
+<p class="text-error text-sm text-center pt-2">E-mail ou senha inválidos. Tente novamente.</p>
+</form>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal pt-6 text-center">
+                    Ainda não tem uma conta? <a class="font-semibold text-primary hover:underline" href="#">Registre-se</a>
+</p>
+</div>
+</div>
+</div>
+</body></html>
